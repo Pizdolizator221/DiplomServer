@@ -1,0 +1,6 @@
+{
+    "PORT": 3000,
+    "ConnectionStrings": {
+        "Users": "mongodb://localhost:27017/Users"
+    }
+}
