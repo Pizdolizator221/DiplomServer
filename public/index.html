@@ -7,8 +7,97 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        хеллоу
-    </h1>
+    <!-- СОЗДАТБ -->
+    <form action="./api/users/create" method="post">
+        <fieldset>
+            <legend>
+                КРЕАТЕ УСЕР
+            </legend>
+            
+            <table>
+                <!-- ИМЯ -->
+                <tr>
+                    <td>
+                        ИМЯ
+                    </td>
+                    <td>
+                        <input type="text" name="firstName">
+                    </td>
+                </tr>
+
+                <!-- ФАМИЛИЯ -->
+                <tr>
+                    <td>
+                        ФАМИЛИЯ
+                    </td>
+                    <td>
+                        <input type="text" name="lastName">
+                    </td>
+                </tr>
+
+                <!-- ГРУППА -->
+                <tr>
+                    <td>
+                        ГРУППА
+                    </td>
+                    <td>
+                        <input type="text" name="group">
+                    </td>
+                </tr>
+
+                <!-- ИМЯ ПОЛЗАТЕЛЯ -->
+                <tr>
+                    <td>
+                        ИМЯ ПОЛЗАТЕЛЯ
+                    </td>
+                    <td>
+                        <input type="text" name="username">
+                    </td>
+                </tr>
+
+                <!-- ЭЛ. ПОЧТА -->
+                <tr>
+                    <td>
+                        ЭЛ . ПОЧТА
+                    </td>
+                    <td>
+                        <input type="text" name="email">
+                    </td>
+                </tr>
+
+                <!-- ПАРОЛЬ -->
+                <tr>
+                    <td>
+                        ПАРОЛЬ
+                    </td>
+                    <td>
+                        <input type="text" name="password">
+                    </td>
+                </tr>
+
+                <!-- ТЕЛ. НОМЕР -->
+                <tr>
+                    <td>
+                        ТЕЛ. НОМЕР
+                    </td>
+                    <td>
+                        <input type="text" name="phoneNumber">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="submit" value="ПОПВЩЗЫПОз">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <!-- ПОЕСК -->
+    <form action="./api/users/find" method="get">
+        <input type="text" name="username">
+        <input type="submit" value="adsg">
+    </form>
 </body>
 </html>

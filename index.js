@@ -20,6 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // routes
+const userRouter = require('./routers/userRouter');
+app.use('/api/users', userRouter);
+
 app.use((req, res) => {
     res.sendStatus(404);
 });
@@ -27,11 +30,11 @@ app.use((req, res) => {
 // server startup
 const {PORT, ConnectionStrings} = require('./config/default.json');
 
-// mongoose.connect(ConnectionStrings.Users, {
-//     useUnifiedTopology: true,
-//     useNewUrlParser: true
-// }, (error) => {
-//     if(error) return console.log(error.message);
+mongoose.connect(ConnectionStrings.Users, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+}, (error) => {
+    if(error) return console.log(error.message);
 
     app.listen(
         PORT,
@@ -39,4 +42,4 @@ const {PORT, ConnectionStrings} = require('./config/default.json');
             ansiColors.bgGreen.white(`server is listening on http://localhost:${PORT}`)
         )
     )
-// });
+});
