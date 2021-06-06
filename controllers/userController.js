@@ -42,7 +42,6 @@ exports.createUser = (req, res) => {
 exports.findUser = (req, res) => {
     User.findOne(req.query, (error, user) => {
         if(error) return res.status(404).send(error.message);
-        console.log(req.body);
         res.json(user);
     });
 }

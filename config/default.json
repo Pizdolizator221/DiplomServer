@@ -2,5 +2,6 @@
     "PORT": 3000,
     "ConnectionStrings": {
         "Users": "mongodb+srv://nikita:Q1qqqqqq@cluster0.jg0rt.mongodb.net/Diplom?retryWrites=true&w=majority"
-    }
+    },
+    "Secret": "ihatejews"
 }

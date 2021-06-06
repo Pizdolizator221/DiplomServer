@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+<!-- ПОЛЗАТЕЛИ -->
     <!-- СОЗДАТБ -->
     <form action="./api/users/create" method="post">
         <fieldset>
@@ -98,6 +99,56 @@
     <form action="./api/users/find" method="get">
         <input type="text" name="username">
         <input type="submit" value="adsg">
+    </form>
+
+<!-- ТРЕДЫ -->
+    <!-- СОЗДАТЬ -->
+    <form action="./api/threads/create" method="post">
+        <fieldset>
+            <legend>
+                КРЕАТЕ ТХРЕАДЖ
+            </legend>
+            
+            <table>
+                <!-- ИМЯ ПОЛЗАТЕЛЯ -->
+                <tr>
+                    <td>
+                        ИМЯ ПОЛЗАТЕЛЯ
+                    </td>
+                    <td>
+                        <input type="text" name="authorUsername">
+                    </td>
+                </tr>
+
+                <!-- ТИТЛЕ -->
+                <tr>
+                    <td>
+                        ТИТЛЕ
+                    </td>
+                    <td>
+                        <input type="text" name="title">
+                    </td>
+                </tr>
+
+                <!-- ТЕКСТ -->
+                <tr>
+                    <td>
+                        ТЕКСТ
+                    </td>
+                    <td>
+                        <textarea name="contentText" id="" cols="30" rows="10">
+
+                        </textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="submit" value="ПОПВЩЗЫПОз">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
     </form>
 </body>
 </html>
