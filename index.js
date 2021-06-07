@@ -20,7 +20,7 @@ app.use(passport.session());
 const morgan = require('morgan');
 const favicon = require('serve-favicon');
 
-app.use(morgan('dev'));
+app.use(morgan('combined'));
 app.use(favicon(join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(join(__dirname, 'public')));
 app.use(bodyParser.json());
