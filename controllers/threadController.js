@@ -11,6 +11,8 @@ exports.getThreads = (req, res) => {
 exports.createThread = (req, res) => {
     if(!req.body) return res.status(404).send(error.message);
 
+    console.log(req.body);
+
     const authorUsername = req.body.authorUsername;
     const title = req.body.title;
     const contentText = req.body.contentText;
