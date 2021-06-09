@@ -1,21 +1,15 @@
 // import packages
 const express = require('express');
-const passport = require('passport');
-const expressSession = require('express-session');
 const mongoose = require('mongoose');
 const ansiColors = require('ansi-colors');
 const {join} = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const passport = require('passport');
 
 const app = express();
 
 // middleware
-const {Secret} = require('./config/default.json');
-
-app.use(expressSession({secret: Secret}));
-app.use(passport.initialize());
-app.use(passport.session());
 
 const morgan = require('morgan');
 const favicon = require('serve-favicon');
@@ -26,6 +20,10 @@ app.use(express.static(join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+
+app.use(passport.initialize());
+app.use(passport.session());
+require('./auth/auth');
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
