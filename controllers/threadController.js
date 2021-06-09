@@ -36,3 +36,10 @@ exports.findThreads = (req, res) => {
         res.json(threads);
     });
 }
+
+exports.findThread = (req, res) => {
+    Thread.findById(req.query._id, (error, thread) => {
+        if(error) return res.status(404).status(error.message);
+        res.json(thread)
+    });
+}

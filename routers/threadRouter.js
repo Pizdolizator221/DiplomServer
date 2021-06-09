@@ -1,9 +1,10 @@
 const {Router} = require('express');
 const threadController = require('../controllers/threadController');
-const userRouter = Router();
+const threadRouter = Router();
 
-userRouter.get('/', threadController.getThreads);
-userRouter.post('/create', threadController.createThread);
-userRouter.get('/find', threadController.findThreads);
+threadRouter.get('/', threadController.getThreads);
+threadRouter.post('/create', threadController.createThread);
+threadRouter.get('/find', threadController.findThreads);
+threadRouter.get('/find_by_id', threadController.findThread);
 
-module.exports = userRouter;
+module.exports = threadRouter;

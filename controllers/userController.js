@@ -1,5 +1,7 @@
 const User = require('../models/user');
 const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const {Secret} = require('../config/default.json');
 
 // ПОЛУЧЕНИЕ СПИСКА ПОЛЗАТЕЛЕЙ
 exports.getUsers = (req, res) => {
@@ -24,3 +26,33 @@ exports.signup = async (req, res, next) => {
         user: req.user
     });
 }
+
+exports.login = async (req, res, next) => {
+    passport.authenticate(
+      'login',
+      async (err, user, info) => {
+        try {
+          if (err || !user) {
+            const error = new Error('An error occurred.');
+
+            return next(err);
+          }
+
+          req.login(
+            user,
+            { session: false },
+            async (error) => {
+              if (error) return next(error);
+
+              const body = { _id: user._id, email: user.email };
+              const token = jwt.sign({ user: body }, Secret);
+
+              return res.json({ token });
+            }
+          );
+        } catch (error) {
+          return next(error);
+        }
+      }
+    )(req, res, next);
+  }
