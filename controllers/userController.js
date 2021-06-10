@@ -47,7 +47,7 @@ exports.login = async (req, res, next) => {
               const body = { _id: user._id, email: user.email };
               const token = jwt.sign({ user: body }, Secret);
 
-              return res.json({ token });
+              return res.json({ token, user });
             }
           );
         } catch (error) {
