@@ -18,7 +18,23 @@ const threadSchema = new Schema({
     date: {
         type: Date,
         default: Date.now()
-    }
+    },
+    comments: [
+        {
+            authorUsername: {
+                type: String,
+                required: true
+            },
+            contentText: {
+                type: String,
+                required: true
+            },
+            date: {
+                type: Date,
+                default: Date.now()
+            }
+        }
+    ]
 });
 
 module.exports = mongoose.model('Thread', threadSchema);

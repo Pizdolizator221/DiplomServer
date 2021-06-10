@@ -39,7 +39,26 @@ exports.findThreads = (req, res) => {
 
 exports.findThread = (req, res) => {
     Thread.findById(req.query._id, (error, thread) => {
-        if(error) return res.status(404).status(error.message);
+        if(error) return res.status(404).send(error.message);
         res.json(thread)
     });
+}
+
+exports.reply = (req, res) => {
+    const threadId = req.body.threadId;
+    const authorUsername = req.body.authorUsername;
+    const contentText = req.body.contentText;
+
+    const comment = {
+        authorUsername,
+        contentText
+    };
+
+    Thread.findByIdAndUpdate(
+        threadId,
+        { $push: {comments: comment } },
+        (error) => {
+            if (error) return res.status(404).send(error.message);
+        }
+    );
 }
