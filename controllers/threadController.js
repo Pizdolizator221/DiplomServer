@@ -1,5 +1,6 @@
 const Thread = require('../models/thread');
 
+// get list of all threads
 exports.getThreads = (req, res) => {
     Thread.find((error, allThreads) => {
         if(error) return res.status(404).send(error.message);
@@ -8,6 +9,7 @@ exports.getThreads = (req, res) => {
     });
 }
 
+// create new thread
 exports.createThread = (req, res) => {
     if(!req.body) return res.status(404).send(error.message);
 
@@ -30,6 +32,7 @@ exports.createThread = (req, res) => {
     })
 }
 
+// find threads
 exports.findThreads = (req, res) => {
     Thread.find(req.query, (error, threads) => {
         if(error) return res.status(404).send(error.message);
@@ -37,6 +40,7 @@ exports.findThreads = (req, res) => {
     });
 }
 
+// find one thread by it's _id
 exports.findThread = (req, res) => {
     Thread.findById(req.query._id, (error, thread) => {
         if(error) return res.status(404).send(error.message);
@@ -44,6 +48,7 @@ exports.findThread = (req, res) => {
     });
 }
 
+// find thread by it's _id and add a comment to it's comments parameter
 exports.reply = (req, res) => {
     const threadId = req.body.threadId;
     const authorUsername = req.body.authorUsername;

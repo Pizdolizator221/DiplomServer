@@ -1,7 +1,9 @@
+// import packages
 const {Router} = require('express');
 const threadController = require('../controllers/threadController');
 const threadRouter = Router();
 
+// threads endpoints
 threadRouter.get('/', threadController.getThreads);
 threadRouter.post('/create', threadController.createThread);
 threadRouter.get('/find', threadController.findThreads);

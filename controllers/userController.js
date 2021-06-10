@@ -1,9 +1,10 @@
+// import packages
 const User = require('../models/user');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const {Secret} = require('../config/default.json');
 
-// ПОЛУЧЕНИЕ СПИСКА ПОЛЗАТЕЛЕЙ
+// get full list of users
 exports.getUsers = (req, res) => {
     User.find((error, allUsers) => {
         if(error) return res.status(404).send(error.message);
@@ -12,7 +13,7 @@ exports.getUsers = (req, res) => {
     });
 }
 
-// НАХОЖДЕНИЕ ПОЛЗАТЕЛЯ
+// find one user (by any parameter)
 exports.findUser = (req, res) => {
     User.findOne(req.query, (error, user) => {
         if(error) return res.status(404).send(error.message);
@@ -20,6 +21,7 @@ exports.findUser = (req, res) => {
     });
 }
 
+// signup method
 exports.signup = async (req, res, next) => {
     res.json({
         message: 'signup succesful',
@@ -27,6 +29,7 @@ exports.signup = async (req, res, next) => {
     });
 }
 
+// login method (responses with token and user object)
 exports.login = async (req, res, next) => {
     passport.authenticate(
       'login',

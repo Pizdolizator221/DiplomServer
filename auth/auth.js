@@ -1,9 +1,12 @@
+// import packages
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 const UserModel = require('../models/user');
 
+// secret key from config file (used for tokens)
 const {Secret} = require('../config/default.json');
 
+// passport middleware to handle registration
 passport.use(
     'signup',
     new localStrategy(
@@ -38,6 +41,7 @@ passport.use(
     )
   );
 
+// passport middleware to handle login
 passport.use(
     'login',
     new localStrategy({
@@ -64,6 +68,7 @@ passport.use(
     })
 )
 
+// jsonwebtoken extraction and verification
 const JWTstrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
 

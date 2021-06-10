@@ -1,7 +1,9 @@
+// import packages
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
+// user data model
 const userSchema = new Schema({
     firstName: {
         type: String,
@@ -40,6 +42,7 @@ const userSchema = new Schema({
     }
 });
 
+// password hash
 userSchema.pre(
     'save',
     async function(next) {
@@ -51,6 +54,7 @@ userSchema.pre(
     }
 );
 
+// comparing passwords
 userSchema.methods.isValidPassword = async function(password) {
     const user = this;
     const compare = await bcrypt.compare(password, user.password);

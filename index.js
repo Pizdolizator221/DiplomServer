@@ -25,26 +25,29 @@ app.use(passport.initialize());
 app.use(passport.session());
 require('./auth/auth');
 
+// cors configuration
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
 
-// routes
+// import routes
 const userRouter = require('./routers/userRouter');
 app.use('/api/users', userRouter);
 const threadRouter = require('./routers/threadRouter');
 app.use('/api/threads', threadRouter);
 
+// handle non-existing route
 app.use((req, res) => {
     res.sendStatus(404);
 });
 
-// server startup
+// PORT used by server and connection string required for MongoDB connection
 const {PORT, ConnectionStrings} = require('./config/default.json');
 
-mongoose.connect(ConnectionStrings.Users, {
+// connection to MongoDB database and server startup
+mongoose.connect(ConnectionStrings.Diplom, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 }, (error) => {

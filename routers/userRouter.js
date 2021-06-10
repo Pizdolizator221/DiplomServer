@@ -1,9 +1,10 @@
+// import packages
 const {Router} = require('express');
 const userController = require('../controllers/userController');
 const userRouter = Router();
 const passport = require('passport');
 
-
+// user endpoints
 userRouter.get('/', userController.getUsers);
 userRouter.get('/find', userController.findUser);
 
