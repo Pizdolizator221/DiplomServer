@@ -37,6 +37,8 @@ const userRouter = require('./routers/userRouter');
 app.use('/api/users', userRouter);
 const threadRouter = require('./routers/threadRouter');
 app.use('/api/threads', threadRouter);
+const bookRouter = require('./routers/bookRouter');
+app.use('/api/books', bookRouter);
 
 // handle non-existing route
 app.use((req, res) => {

@@ -1,7 +1,6 @@
 // import packages
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const user = require('./user');
 
 // thread data model
 const threadSchema = new Schema({
