@@ -58,7 +58,7 @@ mongoose.connect(ConnectionStrings.Diplom, {
     app.listen(
         PORT,
         console.log(
-            ansiColors.bgGreen.white(`server is listening on http://localhost:${PORT}`)
+            ansiColors.bgGreen.black(`server is listening on http://localhost:${PORT}`)
         )
     )
 });
