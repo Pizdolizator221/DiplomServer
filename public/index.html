@@ -5,11 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        .yoba{
+            width: 75px;
+            margin-top: 35px;
+            animation: 2s linear 0s normal none infinite running yobaAnimation;
+        }
+
+        @keyframes yobaAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 <body>
     <a href="./api/users">USERS LIST</a> <br>
     <a href="./api/threads">THREADS LIST</a> <br>
     <a href="./api/books">BOOKS LIST</a> <br>
-    <img src="./favicon.ico" alt="">
+    <div class="yobas">
+        <img src="./favicon.ico" alt="" class="yoba">
+        <img src="./favicon.ico" alt="" class="yoba">
+        <img src="./favicon.ico" alt="" class="yoba">
+        <img src="./favicon.ico" alt="" class="yoba">
+        <img src="./favicon.ico" alt="" class="yoba">
+        <img src="./favicon.ico" alt="" class="yoba">
+    </div>
 </body>
 </html>
